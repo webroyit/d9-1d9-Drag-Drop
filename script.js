@@ -16,3 +16,32 @@ const tallestAnimals = [
 
 // Store listitems
 const listItems = [];
+
+let dragStartIndex;
+
+createList();
+
+// Insert list items into DOM
+function createList() {
+    [...tallestAnimals]
+        .forEach((animal, index) => {
+            // Create a new list item element
+            const listItem = document.createElement('li');
+
+            // Keep track of the listItem
+            listItem.setAttribute('data-index', index);
+
+            // 'draggable' attribute makes the list item draggable
+            listItem.innerHTML = `
+                <span class="number">${index + 1}</span>
+                <div class="draggable" draggable="true">
+                    <p class="person-name">${animal}</p>
+                    <i class="fas fa-list"></i>
+                </div>
+            `;
+
+            listItems.push(listItems);
+
+            draggable_list.appendChild(listItem);
+        });
+}
