@@ -24,6 +24,9 @@ createList();
 // Insert list items into DOM
 function createList() {
     [...tallestAnimals]
+        .map(a => ({ value: a, sort: Math.random() }))      // To randomize the list items
+        .sort((a, b) => a.sort - b.sort)            // Sort the value
+        .map(a => a.value)              // Convert object back to array
         .forEach((animal, index) => {
             // Create a new list item element
             const listItem = document.createElement('li');
