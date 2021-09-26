@@ -43,7 +43,7 @@ function createList() {
                 </div>
             `;
 
-            listItems.push(listItems);
+            listItems.push(listItem);
 
             draggable_list.appendChild(listItem);
         });
@@ -73,14 +73,14 @@ function dragDrop() {
 
 function addEventListeners() {
     const draggables = document.querySelectorAll('.draggable');
-    const dragListItem = document.querySelectorAll('.draggable-list li');
+    const dragListItems = document.querySelectorAll('.draggable-list li');
 
     // Event listeners for drag and drop
     draggables.forEach(draggables => {
         draggables.addEventListener('dragstart', dragStart);
     })
 
-    dragListItem.forEach(item => {
+    dragListItems.forEach(item => {
         item.addEventListener('dragover', dragOver);
         item.addEventListener('drop', dragDrop);
         item.addEventListener('dragenter', dragEnter);
