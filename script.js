@@ -47,4 +47,43 @@ function createList() {
 
             draggable_list.appendChild(listItem);
         });
+
+    addEventListeners();
+}
+
+function dragStart() {
+    console.log('Event: ', 'dragstart');
+}
+
+function dragEnter() {
+    console.log('Event: ', 'dragenter');
+}
+
+function dragLeave() {
+    console.log('Event: ', 'dragleave');
+}
+
+function dragOver() {
+    console.log('Event: ', 'dragover');
+}
+
+function dragDrop() {
+    console.log('Event: ', 'drop');
+}
+
+function addEventListeners() {
+    const draggables = document.querySelectorAll('.draggable');
+    const dragListItem = document.querySelectorAll('.draggable-list li');
+
+    // Event listeners for drag and drop
+    draggables.forEach(draggables => {
+        draggables.addEventListener('dragstart', dragStart);
+    })
+
+    dragListItem.forEach(item => {
+        item.addEventListener('dragover', dragOver);
+        item.addEventListener('drop', dragDrop);
+        item.addEventListener('dragenter', dragEnter);
+        item.addEventListener('dragleave', dragLeave);
+    })
 }
