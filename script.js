@@ -75,6 +75,7 @@ function dragDrop() {
     this.classList.remove('over');
 }
 
+// Swap list items that are drag and drop
 function swapItems(fromIndex, toIndex) {
     // Get the DOM elements
     const itemOne = listItems[fromIndex].querySelector('.draggable');
@@ -100,3 +101,21 @@ function addEventListeners() {
         item.addEventListener('dragleave', dragLeave);
     })
 }
+
+// Check the order of list items
+function checkOrder() {
+    listItems.forEach((listItem, index) => {
+        const animalName = listItem.querySelector('.draggable').innerText.trim();
+
+        // If no match
+        if(animalName !== tallestAnimals[index]) {
+            listItem.classList.remove('right');
+            listItem.classList.add('wrong');
+        } else {
+            listItem.classList.remove('wrong');
+            listItem.classList.add('right');
+        }
+    });
+}
+
+check.addEventListener('click', checkOrder);
